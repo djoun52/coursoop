@@ -66,7 +66,14 @@ class voiture
     {
         $this->vitesse = $p_vitesse;
     }
-
+    function add_vitesse($p_vitesse)
+    {
+        $this->vitesse +=$p_vitesse;
+    }
+    function less_vitesse($p_vitesse)
+    {
+        $this->vitesse -=$p_vitesse;
+    }
     function demarrer()
     {
         if ($this->etat == 2) {
@@ -85,7 +92,7 @@ class voiture
     {
         if ($this->etat == 3) {
             if ($this->vitesse < 100) {
-                $this->vitesse += 20;
+                $this->add_vitesse(50);
                 echo  $this->marque . " " . $this->get_modele() . " accelere";
                 echo $this->get_marque() . " " . $this->get_modele() .  " est maintenant a" . $this->get_vitesse() . "km/h";
                 echo "<br>";
@@ -106,7 +113,7 @@ class voiture
     {
         if ($this->etat == 3) {
             if ($this->vitesse > 0) {
-                $this->vitesse -= 50;
+                $this->less_vitesse(50);
                 echo  $this->marque . " " . $this->get_modele() . " decelere";
                 echo "<br>";
                 echo $this->get_modele() .  " est maintenant a " . $this->get_vitesse() . "km/h";
@@ -128,7 +135,7 @@ class voiture
     {
         if ($this->vitesse === 0) {
             if ($this->etat == 3) {
-                $this->etat = 2;
+                $this->set_etat(2);
                 echo $this->get_marque() . " " . $this->get_modele() . "eteint son moteur.";
                 echo "<br>";
                 return;
