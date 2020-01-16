@@ -32,19 +32,7 @@ class Fruit
         return;
     }
 }
-class voiture 
-{
-public $demarer;
-public $accelerer_10_km;
-public $vitesse_max;
-public $décelerer_10_km;
-public $arreter;
-function __construct()
-{
-    
-}
-}
-echo '<br>';
+
 // $a = new Fruit("Banane", "Vert");
 // echo $a->getName();
 // echo '<br>';
