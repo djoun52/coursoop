@@ -7,10 +7,10 @@
             {
                 $tab_x =explode("_",$x);
 
-                $methode = "set" ucwords($tab_x[0]);
+                $methode = "set" . ucwords($tab_x[0]);
                 
                 if (method_exists($this,$methode)){
-                    $this->$methode($value;)
+                    $this->$methode($value);
                 }
             }
         }
