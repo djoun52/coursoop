@@ -9,6 +9,13 @@ require_once '../Modele/reponse.classDAO.php';
 
 $questionDAO = new QuestionDAO();
 $arrQuestions = $questionDAO->getAllQuestions();
+
+$arrQuestionsCategorie = $questionDAO->getQuestionsByCategorie($_GET['categorie']);
+foreach ($arrQuestionsCategorie as $key => $value) {
+    $questionsCategorie[] = new Questions($value);
+}
+var_dump($questionsCategorie);
+
 $responseDAO = new ReponseDAO();
 $arrReponses = $responseDAO->getallReponses();
 // var_dump($a);
@@ -24,11 +31,11 @@ foreach ($arrReponses as $key => $value) {
     $reponse[] = new Reponse($value);
 }
 foreach ($questions as $key => $value) {
-    echo '<h1>' . $value->getQuestion() . '</h1>';
-    echo '<h3> categorie : ' . $value->getCategorie() . '</h3>';
+    // echo '<h1>' . $value->getQuestion() . '</h1>';
+    // echo '<h3> categorie : ' . $value->getCategorie() . '</h3>';
 }
 // var_dump($questions);
 foreach ($reponse as $key => $value) {
-    echo '<h3>' . $value->getReponse() . '</h3>';
+    // echo '<h3>' . $value->getReponse() . '</h3>';
 }
 // var_dump($reponse);

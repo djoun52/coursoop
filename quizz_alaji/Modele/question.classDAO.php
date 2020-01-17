@@ -18,4 +18,14 @@ class QuestionDAO extends DbConnect
         return $result->fetchAll();
 
     }
+    public function getQuestionsByCategorie($paramCategorie)
+    {
+        $sql = "SELECT * FROM questions WHERE categorie = :paramcategorie";
+        $params = array(
+            "paramcategorie" => $paramCategorie
+        );
+        $result = parent::executeQuery($sql,$params);
+        return $result->fetchAll();
+
+    }
 }
